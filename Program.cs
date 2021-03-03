@@ -7,7 +7,7 @@ namespace Quest
 {
     class Program
     {
-        static void Main()
+        static void Main(string[] args)
         {
             // Create a few challenges for our Adventurer's quest
             // The "Challenge" Constructor takes three arguments
@@ -46,8 +46,15 @@ namespace Quest
             Console.Write("> ");
             string userName = Console.ReadLine();
 
+            Robe fancyRobe = new Robe();
+            fancyRobe.Length = 72;
+            fancyRobe.Colors = new List<string>()
+            {
+                "green", "mauve", "silver", "gold", "yellow", "turquoise"
+            };
+
             // Make a new "Adventurer" object using the "Adventurer" class
-            Adventurer theAdventurer = new Adventurer(userName);
+            Adventurer theAdventurer = new Adventurer(userName, fancyRobe);
 
             // A list of challenges for the Adventurer to complete
             // Note we can use the List class here because have the line "using System.Collections.Generic;" at the top of the file.
@@ -59,6 +66,8 @@ namespace Quest
                 guessRandom,
                 favoriteBeatle
             };
+
+            Console.WriteLine(theAdventurer.GetDescription());
 
             // Loop through all the challenges and subject the Adventurer to them
             foreach (Challenge challenge in challenges)
@@ -80,12 +89,14 @@ namespace Quest
             {
                 Console.WriteLine("I guess you did...ok? ...sorta. Still, you should get out of my sight.");
             }
+
             Console.WriteLine("Wanna play again? (y/n)");
             Console.Write("> ");
             string userInput = Console.ReadLine().ToLower();
-            if (userInput == "y") {
+            if (userInput == "y")
+            {
                 Console.Clear();
-                Main();
+                Main(args);
             }
         }
     }
