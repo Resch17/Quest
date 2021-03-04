@@ -53,8 +53,11 @@ namespace Quest
                 "green", "mauve", "silver", "gold", "yellow", "turquoise"
             };
 
+            Hat dopeHat = new Hat();
+            dopeHat.ShininessLevel = 1;
+
             // Make a new "Adventurer" object using the "Adventurer" class
-            Adventurer theAdventurer = new Adventurer(userName, fancyRobe);
+            Adventurer theAdventurer = new Adventurer(userName, fancyRobe, dopeHat);
 
             // A list of challenges for the Adventurer to complete
             // Note we can use the List class here because have the line "using System.Collections.Generic;" at the top of the file.
