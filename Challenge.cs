@@ -40,11 +40,14 @@ namespace Quest
 
                 // Note how we access an Adventurer object's property
                 adventurer.Awesomeness += _awesomenessChange;
+                Console.WriteLine($"Your awesomeness level: {adventurer.Awesomeness}");
+                adventurer.ChallengesPassed++;
             }
             else
             {
                 Console.WriteLine("You have failed the challenge, there will be consequences.");
                 adventurer.Awesomeness -= _awesomenessChange;
+                Console.WriteLine($"Your awesomeness level: {adventurer.Awesomeness}");
             }
 
             // Note how we call an Adventurer object's method
