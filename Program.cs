@@ -32,6 +32,8 @@ namespace Quest
 ",
                 4, 20
             );
+            Challenge moonLanding = new Challenge("What year did first land on to the moon?", 1969, 30);
+            Challenge packerBowls = new Challenge("How many Super Bowls have the Green Bay Packers won?", 4, 50);
 
             // "Awesomeness" is like our Adventurer's current "score"
             // A higher Awesomeness is better
@@ -67,15 +69,22 @@ namespace Quest
                 theAnswer,
                 whatSecond,
                 guessRandom,
-                favoriteBeatle
+                favoriteBeatle,
+                moonLanding,
+                packerBowls
             };
 
             Console.WriteLine(theAdventurer.GetDescription());
 
             // Loop through all the challenges and subject the Adventurer to them
-            foreach (Challenge challenge in challenges)
+            // foreach (Challenge challenge in challenges)
+            // {
+            //     challenge.RunChallenge(theAdventurer);
+            // }
+            for (int i = 0; i < 5; i++)
             {
-                challenge.RunChallenge(theAdventurer);
+                int challengeNumber = new Random().Next(0, challenges.Count);
+                challenges[challengeNumber].RunChallenge(theAdventurer);
             }
 
             // This code examines how Awesome the Adventurer is after completing the challenges
@@ -92,8 +101,11 @@ namespace Quest
             {
                 Console.WriteLine("I guess you did...ok? ...sorta. Still, you should get out of my sight.");
             }
-            
+
             Prize reward = new Prize("Gold coin");
+            Console.WriteLine("Press any key to receive your reward...");
+            Console.ReadKey();
+            Console.Clear();
             Console.WriteLine("Behold, your reward: ");
             reward.ShowPrize(theAdventurer);
 
