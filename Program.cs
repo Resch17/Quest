@@ -92,6 +92,10 @@ namespace Quest
             {
                 Console.WriteLine("I guess you did...ok? ...sorta. Still, you should get out of my sight.");
             }
+            
+            Prize reward = new Prize("Gold coin");
+            Console.WriteLine("Behold, your reward: ");
+            reward.ShowPrize(theAdventurer);
 
             Console.WriteLine("Wanna play again? (y/n)");
             Console.Write("> ");
